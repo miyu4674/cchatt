@@ -1,14 +1,25 @@
 buildscript {
-    
-    repositories {
-        mavenCentral()
+    ext {
+        springBootVersion = "2.2.0.RELEASE"
     }
 
+
     dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
     }
 }
 
+
+plugins {
+    id "java"
+    id "org.springframework.boot" version "2.2.0.RELEASE"
+    id "io.spring.dependency-management" version "1.0.9.RELEASE"
+
+}
+
+repositories {
+    mavenCentral()
+}
 
 allprojects {
     group = 'cchatt'
@@ -17,5 +28,10 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    apply plugin: 'eclipse'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java-library'
+
+    repositories {
+        mavenCentral()
+    }
 }
