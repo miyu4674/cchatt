@@ -24,7 +24,7 @@ public class ChatConfig {
 
 
     @Bean
-    public DataSource mysqlDataSource() {
+    public DataSource hikariDataSource() {
 
         HikariDataSource hikariDataSource  = new HikariDataSource();
         hikariDataSource.setUsername(DB_USERNAME);
